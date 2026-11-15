@@ -1,0 +1,20 @@
+services:
+  - type: web
+    name: resourcex-api
+    runtime: node
+    plan: starter            # persistent disks need a paid plan
+    rootDir: backend
+    buildCommand: npm install --omit=dev
+    startCommand: npm start
+    healthCheckPath: /api/health
+    envVars:
+      - key: JWT_SECRET
+        generateValue: true
+      - key: CORS_ORIGIN
+        value: https://your-app.vercel.app
+      - key: DATA_DIR
+        value: /var/data
+    disk:
+      name: resourcex-data
+      mountPath: /var/data
+      sizeGB: 1

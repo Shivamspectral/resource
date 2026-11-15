@@ -1,0 +1,159 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>ReSourceX | Circular Resource Network</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 100 100%27%3E%3Crect width=%27100%27 height=%27100%27 rx=%2722%27 fill=%27%23197348%27/%3E%3Ctext x=%2750%27 y=%2770%27 font-size=%2770%27 text-anchor=%27middle%27 fill=%27white%27%3E%E2%8C%81%3C/text%3E%3C/svg%3E">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="app-shell">
+  <aside class="sidebar">
+    <div class="brand"><div class="leaf-logo">⌁</div><div><div class="brand-name">ReSourceX</div><div class="tagline">Reduce · Reuse · Recycle</div></div></div>
+    <nav class="nav" id="sidebarNav">
+      <button class="nav-item active" data-page="home"><span>⌂</span>Home</button>
+      <button class="nav-item" data-page="list"><span>⊕</span>List Surplus</button>
+      <button class="nav-item" data-page="listings"><span>▤</span>My Listings</button>
+      <button class="nav-item" data-page="find"><span>⌕</span>Find Resources</button>
+      <button class="nav-item" data-page="matches"><span>↗</span>Matches <b class="badge" id="badgeMatches" hidden>0</b></button>
+      <button class="nav-item" data-page="messages"><span>◌</span>Messages <b class="badge" id="badgeMessages" hidden>0</b></button>
+      <button class="nav-item" data-page="impact"><span>♧</span>Impact</button>
+      <button class="nav-item" data-page="profile"><span>♙</span>Profile</button>
+      <button class="nav-item" data-page="rules"><span>§</span>Rules & Regulations</button>
+    </nav>
+    <div class="sidebar-spacer"></div>
+    <div class="side-callout"><div class="mini-leaf">⌁</div><strong>Small actions.<br>Big change.</strong><span></span><small>Every verified exchange keeps useful resources in circulation.</small></div>
+    <div class="website">◉ &nbsp; www.resourcex.com</div>
+  </aside>
+
+  <main class="main">
+    <header class="topbar">
+      <div class="search"><span>⌕</span><input id="globalSearch" placeholder="Search resources, organizations, or categories..."></div>
+      <div class="top-actions">
+        <button class="bell" id="bellBtn">♧<i></i></button><div class="divider"></div>
+        <button class="user" id="profileTop"><div class="avatar" id="userAvatar">◉</div><div><strong id="userName">—</strong><small id="userOrg">—</small></div><span>⌄</span></button>
+      </div>
+    </header>
+
+    <div class="content" id="appContent">
+      <!-- HOME -->
+      <section class="page active" id="page-home">
+        <section class="hero">
+          <div class="hero-copy"><div class="eyebrow">ReSourceX</div><h1>Turning surplus into<br><em>shared value.</em></h1><p>An AI-powered platform that connects organizations with surplus resources to those who need them, reducing waste and creating a more sustainable future.</p><div class="principles"><span>⌁</span> Reduce <i></i><span>↻</span> Reuse <i></i><span>♻</span> Recycle</div></div>
+          <div class="hero-art"><div class="hero-image"></div></div>
+        </section>
+
+        <section class="category-grid">
+          <article class="category blue" data-filter="Healthcare"><div class="cat-icon">✚</div><div><b>Healthcare</b><strong id="cnt-Healthcare">0</strong><small>Surplus Resources</small></div><span class="arrow">→</span></article>
+          <article class="category green" data-filter="Agriculture"><div class="cat-icon">⌁</div><div><b>Agriculture</b><strong id="cnt-Agriculture">0</strong><small>Surplus Resources</small></div><span class="arrow">→</span></article>
+          <article class="category gray" data-filter="Research"><div class="cat-icon">♜</div><div><b>Research & Labs</b><strong id="cnt-Research">0</strong><small>Surplus Resources</small></div><span class="arrow">→</span></article>
+        </section>
+
+        <section class="feature-strip">
+          <div><span>⚡</span><div><b>AI Match Score</b><small id="fsAvg">Scoring as matches form</small></div></div>
+          <div><span>🛡</span><div><b>Trust Shield</b><small>Verified organizations only</small></div></div>
+          <div><span>↻</span><div><b>Live Circularity</b><small>Track resources in real time</small></div></div>
+          <div><span>♻</span><div><b>Waste Prevented</b><small id="fsEx">0 exchanges this month</small></div></div>
+        </section>
+
+        <div class="dashboard-grid">
+          <section class="card listings">
+            <div class="card-head"><h2>Recent Surplus Listings</h2><button class="text-btn" data-page-link="listings">View All →</button></div>
+            <div class="table-wrap"><table><thead><tr><th>Resource</th><th>Category</th><th>Quantity</th><th>Location</th><th>Expires In</th><th>Action</th></tr></thead>
+            <tbody id="listingBody"><tr><td colspan="6" class="empty">Loading…</td></tr></tbody></table></div>
+          </section>
+          <section class="card map-card"><div class="card-head"><h2>Resource Distribution</h2><button class="text-btn" id="mapBtn">Open Live Map →</button></div><div class="map"><div class="water"></div><span class="marker m1 green-m">⌁</span><span class="marker m2 blue-m">✚</span><span class="marker m3 lab-m">♜</span><span class="marker m4 blue-m">✚</span><span class="marker m5 green-m">⌁</span><span class="marker m6 lab-m">♜</span><span class="marker m7 green-m big">⌁</span></div><div class="legend"><span>● Hospitals / Medical</span><span>● Agriculture</span><span>● Labs / Research</span></div></section>
+        </div>
+
+        <section class="card how"><div class="how-title"><span>⌁</span><h2>How It Works</h2></div><div class="steps">
+          <div><b>1</b><strong>List Surplus</strong><small>Add available resources</small></div><i>→</i><div><b>2</b><strong>AI Classification</strong><small>Analyzes & categorizes</small></div><i>→</i><div><b>3</b><strong>Smart Matching</strong><small>Finds recipients nearby</small></div><i>→</i><div><b>4</b><strong>Verification</strong><small>Checks authenticity</small></div><i>→</i><div><b>5</b><strong>Transfer</strong><small>Safe exchange</small></div><i>→</i><div><b>6</b><strong>Impact Tracking</strong><small>Measures outcomes</small></div>
+        </div></section>
+      </section>
+
+      <!-- LIST SURPLUS -->
+      <section class="page" id="page-list"><div class="page-title"><div><span>List Surplus</span><h1>Turn idle inventory into impact.</h1><p>Tell ReSourceX what you have. AI will classify it and find the best eligible recipients.</p></div><div class="score-ring">AI<br><b id="aiRingVal">—</b><small>ready</small></div></div>
+        <div class="form-layout"><form class="card form-card" id="surplusForm">
+          <h2>New surplus listing</h2><label>Resource name<input required name="resource" placeholder="e.g. Surgical gloves"></label>
+          <div class="two"><label>Category<select name="category"><option>Healthcare</option><option>Agriculture</option><option>Research</option><option>Industrial</option></select></label><label>Quantity<input required name="quantity" placeholder="e.g. 2,000 units or 500 kg"></label></div>
+          <div class="two"><label>Condition<select name="condition"><option>New / Sealed</option><option>Good Condition</option><option>Unused</option><option>Surplus</option></select></label><label>Expiry / availability<input name="expiry" placeholder="e.g. 45 days (required for Healthcare)"></label></div>
+          <label>Pickup location<input required name="location" placeholder="City, State"></label><label>Description<textarea name="description" placeholder="Add safety, packaging, batch or handling information..."></textarea></label>
+          <div class="check"><input type="checkbox" id="ruleCheck" required> I confirm this listing follows ReSourceX rules and applicable regulations.</div>
+          <button class="primary" type="submit">Run AI Classification & Publish</button>
+        </form><div class="side-stack"><div class="card ai-card"><span>✦</span><h2>AI Listing Copilot</h2><p>Automatically detects category, urgency, compatibility and likely recipients.</p><div class="ai-line"><b>Safety scan</b><em id="aiSafety">Awaiting listing</em></div><div class="ai-line"><b>Category confidence</b><em id="aiConf">—</em></div><div class="ai-line"><b>Potential matches</b><em id="aiPot">—</em></div></div><div class="card rules-mini"><b>Before publishing</b><p>Restricted, expired, unsafe or unverified materials cannot be listed. See the full <button data-page-link="rules">Rules & Regulations</button>.</p></div></div></div>
+      </section>
+
+      <!-- MY LISTINGS -->
+      <section class="page" id="page-listings"><div class="page-title"><div><span>My Listings</span><h1>Your resource pipeline.</h1><p>Monitor live, matched and completed surplus listings.</p></div><button class="primary" data-page-link="list">+ List Surplus</button></div>
+        <div class="stats-row"><div><b id="stLive">0</b><small>Live listings</small></div><div><b id="stMatched">0</b><small>Matched</small></div><div><b id="stDiverted">0 kg</b><small>Resources diverted</small></div><div><b id="stValue">₹ 0</b><small>Value recovered (est.)</small></div></div>
+        <div class="card full-table"><div class="card-head"><h2>Listing management</h2><select id="listingFilter"><option value="">All statuses</option><option value="live">Live</option><option value="matched">Matched</option><option value="completed">Completed</option><option value="expired">Expired</option></select></div><div class="table-wrap"><table><thead><tr><th>Resource</th><th>Category</th><th>Status</th><th>Quantity</th><th>Interest</th><th>Updated</th><th></th></tr></thead><tbody id="manageBody"></tbody></table></div><div class="empty" id="manageEmpty" hidden>You have no listings yet. Use “List Surplus” to publish one.</div></div>
+      </section>
+
+      <!-- FIND -->
+      <section class="page" id="page-find"><div class="page-title"><div><span>Find Resources</span><h1>Search the circular network.</h1><p>Discover verified surplus available near your organization.</p></div><div class="live-chip" id="liveChip">● LIVE NETWORK</div></div>
+        <div class="finder card"><input id="resourceSearch" placeholder="Search paracetamol, tools, aluminium, reagents..."><select id="categoryFilter"><option value="">All categories</option><option>Healthcare</option><option>Agriculture</option><option>Research</option><option>Industrial</option></select><select id="distFilter"><option value="">Anywhere in India</option><option value="100">Within 100 km</option><option value="250">Within 250 km</option><option value="500">Within 500 km</option></select><button class="primary" id="findBtn">Find matches</button></div>
+        <div class="resource-grid" id="resourceGrid"></div>
+      </section>
+
+      <!-- MATCHES -->
+      <section class="page" id="page-matches"><div class="page-title"><div><span>Smart Matches</span><h1>AI found these for you.</h1><p>Matches rank compatibility, distance, urgency and verification.</p></div><div class="match-orbit"><span id="avgOrbit">—</span><small>% avg.</small></div></div>
+        <h3 class="sec-h">Requests &amp; exchanges</h3><div class="match-list" id="matchList"></div>
+        <h3 class="sec-h">Suggested for you</h3><div class="match-list" id="suggestList"></div>
+      </section>
+
+      <!-- MESSAGES -->
+      <section class="page" id="page-messages"><div class="page-title"><div><span>Messages</span><h1>Coordinate every exchange.</h1><p>Keep conversations, documents and transfer details in one place.</p></div></div>
+        <div class="messages-layout"><div class="card threads" id="threadList"></div><div class="card chat"><div class="chat-head"><b id="chatTitle">Select a conversation</b><span class="verified" id="chatVerified" hidden>✓ Verified</span></div><div class="chat-body" id="chatBody"></div><div class="quick"><button>Send docs</button><button>Propose pickup</button><button>Share listing</button></div><div class="composer"><input id="messageInput" placeholder="Write a message..." maxlength="2000"><button id="sendMsg">Send</button></div></div></div>
+      </section>
+
+      <!-- IMPACT -->
+      <section class="page" id="page-impact"><div class="page-title"><div><span>Impact Command Center</span><h1>See what your circular actions changed.</h1><p>Estimates from your completed and verified exchanges.</p></div><button class="outline" id="exportImpact">Export report</button></div>
+        <div class="impact-big-grid"><div class="impact-big"><span>♻</span><b id="imRecycled">0 kg</b><small>Materials recycled</small><em id="imEx">0 completed exchanges</em></div><div class="impact-big"><span>⌁</span><b id="imReused">0 kg</b><small>Food & medical reused</small><em>from verified exchanges</em></div><div class="impact-big"><span>☁</span><b id="imCo2">0 kg</b><small>CO₂ avoided (est.)</small><em>2.5 kg per kg diverted</em></div><div class="impact-big"><span>₹</span><b id="imValue">₹ 0</b><small>Economic value created (est.)</small><em>₹55 per kg diverted</em></div></div>
+        <div class="card chart-card"><div class="card-head"><h2>Monthly circularity score</h2><span class="score-label" id="scoreLabel">— / 100</span></div><div class="bars" id="bars"></div><div class="months" id="months"></div></div>
+      </section>
+
+      <!-- PROFILE -->
+      <section class="page" id="page-profile"><div class="page-title"><div><span>Profile & Organization</span><h1>Manage your network identity.</h1><p>Verification and contact settings used during resource exchanges.</p></div><span class="verified large">✓ VERIFIED ORGANIZATION</span></div>
+        <div class="profile-grid"><div class="card profile-card"><div class="profile-avatar" id="pfAvatar">—</div><h2 id="pfHead">—</h2><p id="pfSub">—</p><hr><label>Your name<input id="pfName" maxlength="80"></label><label>Organization<input id="pfOrg" maxlength="120"></label><label>Organization type<select id="pfType"><option>Healthcare</option><option>Agriculture</option><option>Research</option><option>Industrial</option></select></label><label>Email<input id="pfEmail" type="email" maxlength="120"></label><label>Location (City, State)<input id="pfLoc" maxlength="80"></label><button class="primary" id="saveProfile">Save changes</button> <button class="outline" id="logoutBtn">Sign out</button></div><div class="card verification"><h2>Trust & verification</h2><div class="verify-row"><span>✓</span><div><b>Organization identity</b><small>Registered</small></div></div><div class="verify-row"><span>✓</span><div><b>Contact information</b><small>Email on file</small></div></div><div class="verify-row"><span id="vrRules">○</span><div><b>Rules &amp; Regulations</b><small id="vrRulesTxt">Not yet accepted</small></div></div><div class="verify-row"><span>✓</span><div><b>Exchange history</b><small id="vrEx">0 completed exchanges</small></div></div><div class="trust-meter"><b>Trust score</b><strong id="trustVal">—</strong><div><i id="trustBar"></i></div></div></div></div>
+      </section>
+
+      <!-- RULES -->
+      <section class="page" id="page-rules"><div class="page-title"><div><span>Rules & Regulations</span><h1>Safe, transparent, responsible exchange.</h1><p>Platform rules are designed to protect organizations, recipients and the resources being transferred.</p></div><span class="live-chip">VERSION 2.4 · 2026</span></div>
+        <div class="rules-grid">
+          <article class="card rule"><span>01</span><h2>Eligibility & verification</h2><p>Organizations must provide accurate identity, contact and operating information. ReSourceX may require additional verification before an exchange.</p></article>
+          <article class="card rule"><span>02</span><h2>Accurate listings</h2><p>Every listing must state the correct quantity, condition, location, expiry or availability, packaging and relevant handling information.</p></article>
+          <article class="card rule"><span>03</span><h2>Healthcare materials</h2><p>Medical products must be lawfully transferable, appropriately packaged, traceable where required, and within usable dates. Expired or compromised products are prohibited.</p></article>
+          <article class="card rule"><span>04</span><h2>Research & chemical materials</h2><p>Regulated, hazardous or controlled materials require appropriate authorization and documentation. Prohibited substances cannot be listed or exchanged.</p></article>
+          <article class="card rule"><span>05</span><h2>Transport & chain of custody</h2><p>The sender and recipient must agree on safe handling, pickup, transport and receipt. Required records should be retained by the responsible parties.</p></article>
+          <article class="card rule"><span>06</span><h2>Fraud, misuse & safety</h2><p>False listings, unsafe materials, impersonation, payment fraud, harassment and attempts to bypass verification can result in listing removal or account suspension.</p></article>
+          <article class="card rule"><span>07</span><h2>Data & privacy</h2><p>Use organization and contact data only for legitimate exchange purposes. Do not publish personal information that is unnecessary for a transaction.</p></article>
+          <article class="card rule"><span>08</span><h2>Disputes & reporting</h2><p>Report inaccurate listings or unsafe behavior promptly. Keep evidence and transaction records. ReSourceX can pause a match while a report is reviewed.</p></article>
+        </div>
+        <div class="card acknowledgement"><div><b>Compliance acknowledgement</b><p>By publishing or requesting a resource, your organization confirms it will follow applicable laws, safety requirements and these platform rules.</p></div><button class="primary" id="ackRules">I Understand & Accept</button></div>
+      </section>
+    </div>
+  </main>
+
+  <aside class="rightbar">
+    <section class="card activity"><div class="card-head"><h2>Recent Activity</h2><button class="text-btn" id="activityBtn">View All →</button></div>
+      <div id="activityList"></div>
+    </section>
+    <section class="card impact-side"><div class="card-head"><h2>⌁ Your Impact</h2><select><option>This Month</option></select></div><div class="impact-grid"><div><span>⌁</span><strong id="isReused">12.8 t</strong><small>Food & medical reused</small></div><div><span>♻</span><strong id="isRecycled">36.4 t</strong><small>Materials recycled</small></div><div><span>☁</span><strong id="isCo2">98.7 t</strong><small>CO₂ avoided</small></div><div><span>◎</span><strong id="isValue">₹ 18.6 L</strong><small>Value created</small></div></div><div class="impact-banner">Together for a<br><b>circular tomorrow.</b><span>♧</span></div></section>
+    <section class="card quick-actions"><h2>Quick Actions</h2><button data-page-link="list">＋ List surplus</button><button data-page-link="find">⌕ Find a resource</button><button data-page-link="matches">↗ Review matches</button><button data-page-link="rules">§ Check regulations</button></section>
+  </aside>
+
+  <footer><span>© 2026 ReSourceX. All rights reserved.</span><div><button data-page-link="rules">Rules & Regulations</button><button>Privacy Policy</button><button>Contact</button><b>⌁ ReSourceX</b></div></footer>
+</div>
+
+<div class="net-banner" id="netBanner" hidden>Can’t reach the ReSourceX server. Retrying…</div>
+<div class="auth-backdrop" id="auth" hidden><div class="auth-card"><div class="brand"><div class="leaf-logo">⌁</div><div><div class="brand-name">ReSourceX</div><div class="tagline">Reduce · Reuse · Recycle</div></div></div>
+<div class="auth-tabs"><button type="button" id="tabLogin" class="active">Sign in</button><button type="button" id="tabReg">Create account</button></div>
+<form id="authForm" autocomplete="on"><div id="regFields" hidden><label>Your name<input id="auName" maxlength="80"></label><label>Organization<input id="auOrg" maxlength="120"></label><div class="two"><label>Type<select id="auType"><option>Healthcare</option><option>Agriculture</option><option>Research</option><option>Industrial</option></select></label><label>Location<input id="auLoc" placeholder="City, State" maxlength="80"></label></div></div>
+<label>Email<input id="auEmail" type="email" required maxlength="120" autocomplete="username"></label><label>Password<input id="auPass" type="password" required minlength="8" maxlength="200" autocomplete="current-password"></label>
+<div class="auth-err" id="authErr"></div><button class="primary" type="submit" id="authSubmit">Sign in</button></form></div></div>
+<div class="toast" id="toast"></div>
+<div class="modal-backdrop" id="modal"><div class="modal"><button class="modal-x" id="modalX">×</button><div id="modalContent"></div></div></div>
+<script src="config.js"></script>
+<script src="script.js"></script>
+</body>
+</html>
